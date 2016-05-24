@@ -1,0 +1,21 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ output extension="/" #>
+<#
+    var enums = new Tuple<string, string, string>[]
+    {
+        //new Tuple<string, string, string>("Table1", "TextColumn", "ValueColumn"),
+		//new Tuple<string, string, string>("Table2", "TextColumn", "ValueColumn")
+    };
+	
+    foreach (var e in enums)
+    {
+        GenerateEnum(e.Item1, e.Item1, e.Item2, e.Item3);
+    }
+#>
+<#@ include file="EnumGenerator.include.tt" #>
